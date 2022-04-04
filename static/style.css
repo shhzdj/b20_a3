@@ -15,7 +15,7 @@
         top:0;  
     }
     .webname{
-        width: 100px;
+        width: 50px;
         display: flex;
         position: sticky;
         justify-content: space-around;
@@ -23,12 +23,17 @@
         color: #5584c2;
     }
     .home{
-        margin-left:50px;
+        margin-left:30px;
         flex:1;       
     }
     .tabs{
         margin-left:20px;
         flex:2;  
+    }
+    .loginRegister{
+        margin-left:20px;
+        font-weight: bold;
+        flex:2
     }
 }
 
