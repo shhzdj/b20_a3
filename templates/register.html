@@ -8,12 +8,22 @@
         
     </head>
 <body>
+    
+    
     <form action="http://127.0.0.1:5000/register" method = "post">
-        <label for="firstname">First Name</label>
-        <input type="text" id="Username" name="Username">
-        <label for="lastname">Last Name</label>
-        <input type="text" id="Username" name="Username">
-        <label for="username">Username</label>
+
+        <label for="type">Register as a/an:</label>
+
+        <select type = "text" name="Option" id="Option">
+        <option type = "text" value="student">Student</option>
+        <option type = "text" value="instructor">Instructor</option>
+        </select>
+
+        <label for="Firstname">First Name</label>
+        <input type="text" id="Firstname" name="Firstname">
+        <label for="Lastname">Last Name</label>
+        <input type="text" id="Lastname" name="Lastname">
+        <label for="Username">Username</label>
         <input type="text" id="Username" name="Username">
 
         <label for="mail"> Email </label>
@@ -23,6 +33,7 @@
         <textarea id="text" name="Password"></textarea>
 
         <button type="register">Register</button>
+        
     </form>
 </body>
 

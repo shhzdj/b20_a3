@@ -1,11 +1,12 @@
 form {
-    max-width: 480px;
-    margin: 50px auto;
+    padding-top: 500px;
+    max-width: 500px;
+    margin: 200px auto;
     padding: 16px;
     border: 1px solid #eaeaea;
   }
   label {
-    display: block;
+    display:block;
     line-height: 24px;
     font-size: 16px;
     font-weight: 400;
@@ -36,13 +37,14 @@ form {
   select {
     background-color: #ffffff;
     border: 1px solid #e5e5e4;
+    border-radius: 25px;
     font-size: 16px;
     height: auto;
     margin: 0;
     outline: 0;
     padding: 8px 18px;
     height: 48px;
-    width: 100%;
+    width: 92%;
     color: #8a97a0;
     box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
     margin-bottom: 16px;
@@ -65,7 +67,17 @@ form {
   }
   
   select {
-    padding: 6px;
-    height: 32px;
-    border-radius: 2px;
+    padding: 10px;
+    width: 100%;
+    height: 60px;
+    font-size: 16px;
+    border-radius: 25px;
   }
+
+  button{
+    width: 100%;
+    height: 48px;
+    font-size: 16px;
+    border-radius: 25px;
+  }
+  
