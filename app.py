@@ -18,12 +18,18 @@ class users(db.Model):
     email = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(20), nullable = False)
     type = db.Column(db.String(20), nullable = False)
-    #notes = db.relationship('Notes', backref='author', lazy = True)
+    #feedback = db.relationship('feedback', backref='author', lazy = True)
 
     def __repr__(self):
         return f"Person('{self.username}', '{self.email}')"
 
+class feedback(db.Model):
+    __tablename__ = 'feedback'
+    id = db.Column(db.Integer, primary_key = True)
+    feedback = db.Column(db.String(1000), primary_key = True, nullable = False)
 
+    def __repr__(self):
+        return f"feedback('{self.id}', '{self.feedback}')"
 
 @app.route('/')
 @app.route('/home')
@@ -73,6 +79,47 @@ def login():
             session['name']=username
             return redirect(url_for('index'))
 
+
+
+
+@app.route('/feedback', methods = ['GET', 'POST'])
+def enter_feedback():
+    if request.method == 'GET':
+        return render_template('feedback.html')
+    else:
+        
+
+        #username = request.form['Username']
+        #feedback = request.form['Feedback']
+        #user = users.query.filter_by(username = username)
+        #if not user or user.usertype != 'instructor':
+           # flash('Please enter a vald instructor username')
+           ## return render_template('feedback.html')
+       # else:
+        #feedback_details = [
+        #    username,
+        #    feedback
+       # ]
+       username = request.form['Username']
+      
+       person = users.query.filter_by(username = username).first()
+       if person:
+           person_id = person.id
+       
+       feedback = request.form['Feedback']
+       feedback_details =[ 
+           
+           person_id,
+           feedback]
+            
+       
+       add_feedback(feedback_details)
+       return redirect(url_for('enter_feedback'))
+
+def add_feedback(feedback_details):
+    anon_feedback = feedback(id = feedback_details[0], feedback = feedback_details[1])
+    db.session.add(anon_feedback)
+    db.session.commit()
 
 
 def add_users(reg_details):
