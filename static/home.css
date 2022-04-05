@@ -1,0 +1,206 @@
+@media only screen and (min-width: 1150px) {
+    .heading{
+        display: flex;
+        position: sticky;
+        top: 0;
+        background-color:black;
+        color: white;
+        padding: 2%; 
+        z-index: 3;
+        border-bottom: 2px solid #5584c2;
+    }
+    .menu{
+        display: flex;
+        position: sticky;
+        top:0;  
+    }
+    .webname{
+        width: 50px;
+        display: flex;
+        position: sticky;
+        justify-content: space-around;
+        font-size: large;
+        color: #5584c2;
+    }
+    .loginRegister{
+        margin-left:20px;
+        font-weight: bold;
+        flex:2
+    }
+}
+
+@media only screen and (max-width: 1149px) and (min-width:950px) {
+    .heading{
+        display: flex;
+        position: sticky;
+        top: 0;
+        background-color:black;
+        color: white;
+        padding: 2%; 
+        z-index: 3;
+        border-bottom: 2px solid #5584c2;  
+    }
+    .menu{
+        display: flex;
+        position: sticky;
+        top:0;  
+    }
+    .webname{
+        width: 10px;
+        display: flex;
+        /*add this*/
+        margin-left: 10px;
+        position: sticky;
+        justify-content: space-around;
+        
+        color: #5584c2;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .heading{
+        position: sticky;
+        top: 0;
+        background-color:black;
+        color: white;
+        padding: 2%; 
+        border-bottom: 2px solid #5584c2;
+        z-index: 3;
+    }
+    .menu{
+        position: sticky;
+        top:0;  
+    }
+    .webname{
+        width: 100px;
+        position: sticky;
+        font-size: large;
+        color: #5584c2;
+    }
+}
+
+
+
+.overview{
+    color:white;
+    margin-left: 1in;
+    margin-right: 1in;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 0;
+    
+}
+h3{
+    color:#5584c2;
+}
+#overview_header{
+    margin-left: 1in;
+    margin-right: 1in;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 3%;
+    padding-bottom: 0;  
+}
+
+
+a{
+    box-shadow: inset black;
+    color: white;
+    text-decoration: none;
+    transition: color .5s ease-in-out, box-shadow .5s ease-in-out;
+}
+a:hover {
+    box-shadow: inset 300px 0 0 0 white ;
+    color: #224f8b;
+    font-weight: bold;
+}
+
+.inside-links{
+    color:#5584c2;
+    font-style: italic;
+}
+.inside-links:visited{
+    color:rgb(39, 39, 128);
+}
+
+@media only screen and (min-width: 601px) {
+    body{
+        font-family:verdana;
+        background-color:black;
+    }
+}
+
+@media only screen and (max-width: 601px) {
+    body{
+        font-family:verdana;
+        background-color:black;
+        font-size: smaller;
+    }
+}
+
+
+#img-tag{
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+.cont{
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+#web-title {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.buttons{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline;
+
+}
+
+#login{
+    width: 200px;
+    height: 70px;
+    font-size: large;
+    background-color: black;
+    color: white;
+    border-radius: 25px;
+}
+#register{
+    width: 200px;
+    height: 70px;
+    font-size: large;
+    background-color: black;
+    color: white;
+    border-radius: 25px;
+}
+.footer{
+    position: static;
+    display: grid;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    border-top: 2px solid #5584c2;
+    color:white;
+    text-align: center; 
+}
+
+.footer-content{
+    margin-top: 20px;
+    font-size: x-small;
+}
+
+#instructor-image{
+    margin-right: 40%;
+    float: right;
+}
+
+

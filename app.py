@@ -29,7 +29,12 @@ class users(db.Model):
 @app.route('/home')
 def home():
     pagename = 'home'
-    return render_template('index.html', pagename = pagename)
+    return render_template('home.html', pagename = pagename)
+
+@app.route('/index')
+def index():
+    pagename = 'index'
+    return render_template('index.html',pagename = pagename)
 
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
@@ -66,7 +71,7 @@ def login():
             return render_template('login.html')
         else:
             session['name']=username
-            return redirect(url_for('home'))
+            return redirect(url_for('index'))
 
 
 
