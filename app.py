@@ -71,6 +71,7 @@ def index():
     pagename = 'index'
     return render_template('index.html',pagename = pagename)
 
+
 @app.route('/account')
 def account():
     pagename = 'account'
@@ -244,6 +245,166 @@ def add_users(reg_details):
     user = users(username = reg_details[0], email = reg_details[1], firstName = reg_details[2], lastName=reg_details[3],  password = reg_details[4], type = reg_details[5])
     db.session.add(user)
     db.session.commit()
+
+
+#
+
+@app.route('/grades', methods = ['GET', 'POST'])
+def grades():
+    if request.method == 'GET':
+        query_grades_result = query_grades()
+        return render_template('grades.html', query_grades_result = query_grades_result )
+
+def query_grades():
+    query_grades = Marks.query.all()
+    return query_grades
+
+#Instructor adding student grades
+@app.route('/addGrades', methods = ['GET', 'POST'])
+def add():
+    if request.method == 'GET':
+        return render_template('addGrades.html')
+    else:
+        grade_details =(
+            request.form['StudentID'],
+            request.form['A1_Mark'],
+            request.form['A2_Mark'],
+            request.form['A3_Mark'],
+            request.form['Midterm_Mark'],
+            request.form['Tut_Mark'],
+            request.form['Final_Mark'],
+            request.form['OverallGrade']
+            
+
+        )
+        Studentid = request.form['StudentID']
+        student = users.query.filter_by(id = Studentid).first()
+        if not student :
+            flash('There is no student with this id in your class. Please try again', 'error')
+            query_grades_result = query_grades()
+            return render_template('grades.html', query_grades_result = query_grades_result)
+        else:
+
+            add_grades(grade_details)
+            return render_template('addGradeSuccess.html')
+
+
+
+def add_grades(grade_details):
+     
+    student = users.query.filter_by(id = grade_details[0]).first()
+    #Studentgrades = Marks(id = grade_details[0], A1 = grade_details[1], A2 = grade_details[2], A3 = grade_details[3], Midterm = grade_details[4], Tut = grade_details[5], final = grade_details[6], overall = grade_details[7])
+    studentgrade = Marks.query.filter_by(id = student.id).first()
+    studentgrade.A1 =  grade_details[1]
+    db.session.commit()
+    studentgrade.A2 =  grade_details[2]
+    db.session.commit()
+    studentgrade.A3  = grade_details[3]
+    db.session.commit()
+    studentgrade.Midterm = grade_details[4]
+    db.session.commit()
+    studentgrade.Tut = grade_details[5]
+    db.session.commit()
+    studentgrade.overall = grade_details[6]
+    db.session.commit()
+    studentgrade.final = grade_details[7]
+    db.session.commit()
+
+   
+    db.session.commit()
+
+
+#instructor seeing student feedback
+@app.route('/instructorFeedback', methods = ['GET', 'POST'])
+def inst_feedback():
+    if request.method == 'GET':
+        query_inst_feedback_result = query_inst_feedback()
+        return render_template('instructorFeedback.html', query_inst_feedback_result = query_inst_feedback_result )
+
+
+def query_inst_feedback():
+    username = session['name']
+    instructor = users.query.filter_by(username = username).first()
+    instructor_id = instructor.id
+    query_inst_feedback = feedback.query.filter_by(id = instructor_id)
+    return query_inst_feedback
+
+#instructor seeing all student remark requests
+@app.route('/RemarkRequest', methods = ['GET', 'POST'])
+def RemarkRequest():
+    if request.method == 'GET':
+        query_remark_result = query_remark_requests()
+        return render_template('remarkInstructor.html', query_remark_result = query_remark_result )
+
+def query_remark_requests():
+    query_remark_requests = Remark.query.all()
+    return query_remark_requests
+
+#instructor updating scores for remark
+@app.route('/RemarkAction', methods = ['GET', 'POST'])
+def remark():
+    if request.method == 'GET':
+        return render_template('RemarkAction.html')
+    else:
+        grade_details =(
+            request.form['StudentID'],
+            request.form['Assessment'],
+            request.form['UpdatedMark'],
+            request.form['status']
+        )
+
+        Studentid = request.form['StudentID']
+        student = users.query.filter_by(id = Studentid).first()
+        if not student :
+            flash('There is no student with this id in your class. Please try again', 'error')
+            query_remark_result = query_remark_requests()
+            return render_template('remarkInstructor.html', query_remark_result = query_remark_result)
+        else:
+            change_grades(grade_details)
+            return render_template('RegradeSuccessful.html')
+
+
+
+def change_grades(grade_details):
+    
+    student = Marks.query.filter_by(id = grade_details[0]).first()
+    assesment = grade_details[1]
+    regradeStatus = grade_details[3]
+    
+    if assesment == 'A1':
+        StudentRegrade = Remark.query.filter_by(id = grade_details[0] , assessment = "grade_details[1]")
+
+        # StudentRegradeStatus = StudentRegrade.filter_by(assessment == str(grade_details[1]))
+        StudentRegrade.status = regradeStatus
+        student.A1 = grade_details[2]
+        db.session.commit()
+    elif assesment == 'A2':
+        student.A2 = grade_details[2]
+        db.session.commit()
+    elif assesment == 'A3':
+        student.A3 = grade_details[2]
+        db.session.commit()
+    elif assesment == 'Midterm':
+        student.Midterm = grade_details[2]
+        db.session.commit()
+    elif assesment == 'Tut':
+        student.Tut = grade_details[2]
+        db.session.commit()
+    elif assesment == 'final':
+        student.final = grade_details[2]
+        db.session.commit()
+    else:
+        student.overall = grade_details[2]
+        db.session.commit()
+
+   
+    StudentRegrade = Remark.query.filter_by(id = grade_details[0] , assessment = "grade_details[1]")
+
+   # StudentRegradeStatus = StudentRegrade.filter_by(assessment == str(grade_details[1]))
+    StudentRegrade.status = regradeStatus
+    db.session.commit()
+
 if __name__ == '__main__':
     app.run(debug=True)
+
 

@@ -19,14 +19,14 @@
                 </div>
                 {% if session.role == "student" %}
                     <div class = "tabs">
-                        <a href = "calendar.html">Grades and Remark</a>
+                        <a href = "grades">Grades and Remark</a>
                     </div>
                 {% else %}
                     <div class = "tabs">
-                        <a href = "calendar.html">View Grades</a>
+                        <a href = "grades">View Grades</a>
                     </div>
                     <div class = "tabs">
-                        <a href = "calendar.html">Remark</a>
+                        <a href = "RemarkRequest">Remark</a>
                     </div>
                 {% endif %} 
                 <div class = "tabs">
@@ -53,9 +53,16 @@
                 <div class = "tabs">
                     <a href = "resources">Resources</a>
                 </div>
-                <div class = "tabs">
-                    <a href = "feedback">Feedback</a>
-                </div>
+                {% if session.role == "student" %}
+                    <div class = "tabs">
+                        <a href = "feedback">Feedback</a>
+                    </div>
+                {% else %}
+                    <div class = "tabs">
+                        <a href = "instructorFeedback">Feedback</a>
+                    </div>
+                {% endif %} 
+                 
                 <div class = "tabs">
                     <a href = "logout">Logout</a>
                 </div>

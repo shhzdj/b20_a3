@@ -1191,3 +1191,490 @@ h2{
     text-decoration: underline;
 
 }
+
+
+/*grades.css*/
+@media only screen and (min-width: 1000px) {
+    #header{
+        color:white;
+        margin-left: 5%;
+        margin-top:50px;
+    }
+    
+    #id{
+        margin-right: 40px;
+        text-align: left;
+    }
+    #A1{
+        margin-right:40px;
+        text-align: left;
+    }
+    #A2{
+        margin-right:40px;
+        text-align: left;
+    }
+
+    #A3{
+        margin-right:200px;
+        text-align: left;
+    }
+    #Midterm{
+        margin-right:50px;
+        text-align: left;
+    }
+
+    #Tut{ 
+        margin-right:30px;
+        text-align: left;
+    }
+    #final{ 
+        margin-right:30px;
+        text-align: left;
+    }
+    #overall{ 
+        margin-right:30px;
+        text-align: left;
+    }
+
+
+    .grade-table{
+        display: table;
+        width: 600px;
+        border-top:1px solid white;
+        margin-left:90px;
+        margin-right:90px;
+        margin-top:30px;  
+    }
+}
+
+
+@media only screen and (max-width: 1000px) and (min-width:800px) {
+
+    #header{
+        color:white;
+        margin-left: 5%;
+        margin-top:50px;  
+    }
+   
+    #id{
+        margin-right: 20px;
+        text-align: left;
+    }
+    #A1{
+        margin-right:10px;
+        text-align: left;
+    }
+    #A2{
+        margin-right:30px;
+        text-align: left;
+    }
+    #A3{
+        margin-right:100px;
+        text-align: left;
+    }
+    #Midterm{
+        margin-right:30px;
+        text-align: left;
+    }
+    #Tut{ 
+        margin-right:10px;
+        text-align: left;
+    }
+    #final{ 
+        margin-right:10px;
+        text-align: left;
+    }
+    #overall{ 
+        margin-right:10px;
+        text-align: left;
+    }
+    .grade-table{
+        display: table;
+        width: 300px;
+        border-top:1px solid white;
+        margin-left:30px;
+        margin-top:30px;  
+    }
+}
+
+
+@media only screen and (max-width:800px) {
+    #header{
+        color:white;
+        margin-left: 5%;
+        margin-top:50px;
+    }
+    
+    #grade-name{
+        margin-right: 5px;
+        text-align: left;
+    }
+    #A1{
+        margin-right:15px;
+        text-align: left;
+    }
+    #A2{
+        margin-right:15px;
+        text-align: left;
+    }
+
+    #A3{
+        margin-right:15px;
+        text-align: left;
+    }
+    #Midterm{
+        margin-right:15px;
+        text-align: left;
+    }
+
+    #Tut{ 
+        margin-right:15px;
+        text-align: left;
+    }
+    #final{ 
+        margin-right:15px;
+        text-align: left;
+    }
+    #overall{ 
+        margin-right:15px;
+        text-align: left;
+    }
+
+    .grade-table{
+        display: table;
+        width: 200px;
+        border-top:1px solid white;
+        margin-left:0px;
+        margin-right:0px;
+        margin-top:30px;  
+        font-size: x-small;
+    }
+}
+
+/*remark instructor*/
+@media only screen and (min-width: 1000px) {
+    #header{
+        color:white;
+        margin-left: 5%;
+        margin-top:50px;
+    }
+    
+    #id{
+        margin-right: 40px;
+        text-align: left;
+    }
+    #assessment{
+        margin-right:50px;
+        text-align: left;
+    }
+    #remark{
+        margin-right:60px;
+        text-align: left;
+    }
+
+    #action{
+        margin-right:40px;
+        text-align: left;
+    }
+    #status{
+        margin-right:40px;
+        text-align: left;
+    }
+   
+
+
+    .remark-table{
+        display: table;
+        width: 600px;
+        border-top:1px solid white;
+        margin-left:90px;
+        margin-right:90px;
+        margin-top:30px;  
+        
+    }
+}
+
+
+@media only screen and (max-width: 1000px) and (min-width:800px) {
+
+    #header{
+        color:white;
+        margin-left: 5%;
+        margin-top:50px;  
+    }
+   
+    #id{
+        margin-right: 20px;
+        text-align: left;
+    }
+    #assessment{
+        margin-right:30px;
+        text-align: left;
+    }
+    #remark{
+        margin-right:50px;
+        text-align: left;
+    }
+    #action{
+        margin-right:100px;
+        text-align: left;
+    }
+    #status{
+        margin-right:100px;
+        text-align: left;
+    }
+    
+    .remark-table{
+        display: table;
+        width: 300px;
+        border-top:1px solid white;
+        margin-left:30px;
+        margin-top:30px;  
+        
+    }
+}
+
+
+@media only screen and (max-width:800px) {
+    #header{
+        color:white;
+        margin-left: 5%;
+        margin-top:50px;
+    }
+    
+   
+    #id{
+        margin-right:15px;
+        text-align: left;
+    }
+    #assessment{
+        margin-right:30px;
+        text-align: left;
+    }
+
+    #remark{
+        margin-right:15px;
+        text-align: left;
+    }
+    #action{
+        margin-right:15px;
+        text-align: left;
+    }
+    #status{
+        margin-right:15px;
+        text-align: left;
+    }
+
+    
+
+    .remark-table{
+        display: table;
+        width: 200px;
+        border-top:1px solid white;
+        margin-left:0px;
+        margin-right:0px;
+        margin-top:30px;  
+        font-size: x-small;
+        
+    }
+}
+
+/*instrcutor feedback */
+
+@media only screen and (min-width: 1000px) {
+    #header{
+        color:white;
+        margin-left: 5%;
+        margin-top:50px;
+    }
+    
+    #id{
+        margin-right: 30px;
+        text-align: left;
+    }
+    #feedback{
+        margin-right:20px;
+        text-align: left;
+    }
+  
+
+
+    .feedback-table{
+        display: table;
+        width: 600px;
+        border-top:1px solid white;
+        margin-left:90px;
+        margin-right:90px;
+        margin-top:30px;  
+    }
+}
+
+
+@media only screen and (max-width: 1000px) and (min-width:800px) {
+
+    #header{
+        color:white;
+        margin-left: 5%;
+        margin-top:50px;  
+    }
+   
+    #id{
+        margin-right: 20px;
+        text-align: left;
+    }
+    #A1{
+        margin-right:10px;
+        text-align: left;
+    }
+    #A2{
+        margin-right:30px;
+        text-align: left;
+    }
+    #A3{
+        margin-right:100px;
+        text-align: left;
+    }
+    #Midterm{
+        margin-right:30px;
+        text-align: left;
+    }
+    #Tut{ 
+        margin-right:10px;
+        text-align: left;
+    }
+    #final{ 
+        margin-right:10px;
+        text-align: left;
+    }
+    #overall{ 
+        margin-right:10px;
+        text-align: left;
+    }
+    .grade-table{
+        display: table;
+        width: 300px;
+        border-top:1px solid white;
+        margin-left:30px;
+        margin-top:30px;  
+    }
+}
+
+
+@media only screen and (max-width:800px) {
+    #header{
+        color:white;
+        margin-left: 5%;
+        margin-top:50px;
+    }
+    
+    #id{
+        margin-right: 5px;
+        text-align: left;
+    }
+    #feedback{
+        margin-right:5px;
+        text-align: left;
+    }
+   
+    .feedback-table{
+        display: table;
+        width: 200px;
+        border-top:1px solid white;
+        margin-left:0px;
+        margin-right:0px;
+        margin-top:30px;  
+        font-size: x-small;
+    }
+}
+
+/**/
+form {
+    padding-top: 500px;
+    max-width: 500px;
+    margin: 200px auto;
+    padding: 16px;
+    border: 1px solid #eaeaea;
+  }
+  label {
+    display:block;
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+  
+  label.light {
+    font-weight: 300;
+    display: inline;
+  }
+
+  body {
+    font-family:verdana;
+    color: white;
+    background-color:black;
+  }
+  input[type="text"],
+  input[type="password"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="time"],
+  input[type="url"],
+  textarea,
+  select {
+    background-color: #ffffff;
+    border: 1px solid #e5e5e4;
+    border-radius: 25px;
+    font-size: 16px;
+    height: auto;
+    margin: 0;
+    outline: 0;
+    padding: 8px 18px;
+    height: 48px;
+    width: 92%;
+    color: #8a97a0;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    margin-bottom: 16px;
+    transition: all .2s ease;
+  }
+  
+  input::placeholder {
+    color: #999;
+  }
+  
+  input:focus,
+  textarea:focus,
+  select:focus {
+    background-color:#e5e5e4;
+    border-color: black;
+  }
+  
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin: 0 4px 8px 0;
+  }
+  
+  select {
+    padding: 10px;
+    width: 100%;
+    height: 60px;
+    font-size: 16px;
+    border-radius: 25px;
+  }
+
+  button{
+    width: 100%;
+    height: 48px;
+    font-size: 16px;
+    border-radius: 25px;
+    
+  }
+
+  #error-msg{
+    text-align: center;
+    color: red;
+
+  }
