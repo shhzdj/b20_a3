@@ -6,7 +6,7 @@ from flask_bcrypt import Bcrypt
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '"\x88\x80\xc1\xact\x07\xa7d\xc8\xa5G\x0e\xf0{y'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(seconds = 15)
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes= 15)
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 
