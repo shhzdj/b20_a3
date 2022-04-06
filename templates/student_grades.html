@@ -1,0 +1,133 @@
+
+<head>
+    <link rel = "stylesheet" href = "../static/student_grades.css"> 
+</head>
+<br>
+
+<div class ="heading">
+    <div class="webname"><b>CSCB20</b></div>
+    <div class="menu">
+        <div class = "home">
+            <a href = "index.html"> Home</a>
+        </div>
+        <div class = "tabs">
+            <a href = "calendar.html">Calendar</a>
+        </div>
+        <div class = "tabs">
+            <a href = "Assignments.html">Assignments</a>
+        </div>
+        <div class = "tabs">
+            <a href = "lectures.html">Lectures</a>
+        </div>
+        <div class = "tabs">
+            <a href = "labs.html">Labs</a>
+        </div>
+        <div class = "tabs">
+            <a href="https://piazza.com/class/kxj5alixpjg4ft" target="_blank">Piazza</a>
+        </div>
+        <div class = "tabs">
+            <a href="https://markus.utsc.utoronto.ca/cscb20w22/assignments" target="blank">MarkUs</a> 
+        </div>
+        <div class = "tabs">
+            <a href = "announcements.html">Announcements</a>
+        </div>
+        <div class = "tabs">
+            <a href = "resources.html">Resources</a>
+        </div>
+        <div class = "tabs">
+            <a href = "tests.html">Tests</a>
+        </div>
+        <div class = "tabs">
+            <a href = "feedback.html">Feedback</a>
+        </div>
+    </div>
+</div>
+<br>
+
+
+
+
+<h2 id = "header">My Grades</h2>
+
+
+<br>
+<br>
+
+<div class = "grades-table">
+    <div class = "h-rows">
+        <div class = "t-cells">
+            <h3 id = "id">id</h3>
+        </div>
+
+        <div class = "t-cells">
+            <h3 id = "A1">A1</h3>
+        </div>
+        <div class = "t-cells">
+            <h3 id = "A2">A2</h3>
+        </div>
+        <div class = "t-cells">
+            <h3 id ="A3">A3</h3>
+        </div>
+
+        <div class = "t-cells">
+            <h3 id ="Midterm">Midterm</h3>
+        </div>
+        <div class = "t-cells">
+            <h3 id ="Tut">Tut</h3>
+        </div>
+        <div class = "t-cells">
+            <h3 id ="Final">final</h3>
+        </div>
+        <div class = "t-cells">
+            <h3 id ="Overall">overall</h3>
+        </div>
+
+    </div>
+
+    {% for grades in query_grades_result %}
+    
+    <div class = "t-rows">
+        <div class = "t-cells">{{ grades.id }} </div>
+        <div class = "t-cells">{{ grades.A1 }} </div>
+        <div class = "t-cells"> {{ grades.A2 }}</div>
+        <div class = "t-cells">{{ grades.A3 }} </div>
+        <div class = "t-cells"> {{ grades.Midterm }}</div>
+        <div class = "t-cells"> {{ grades.Tut }}</div>
+        <div class = "t-cells"> {{ grades.final }}</div>
+        <div class = "t-cells"> {{ grades.overall }}</div>
+    </div>
+
+    {% endfor %}
+
+    <br>
+    <br>
+    <div class = "remark_request"> 
+
+        <h4>Post your remark request here!<br></h4>
+        <form action="http://127.0.0.1:5000/student_grades" method="post">
+                
+            <label for="Assessment">Assessment:</label>
+            <input type="text" id="Assessment" name="Assessment">
+
+            <label for="Reason">Reason:</label>
+            <textarea id="Reason" name="Reason"></textarea>
+            <br>
+            <br>
+            <button type="Submit">Submit</button>
+        </form>
+
+</div>
+
+<br>
+
+
+
+<div class = "footer">
+    <div class = "footer-content">
+        <a href="https://web.cs.toronto.edu/">Faculty of Computer Science at UofT</a>
+        <br>Site designed by Ayesha, Shruti and Shahzad
+    </div>
+</div>
+
+
+

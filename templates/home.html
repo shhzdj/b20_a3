@@ -1,38 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>CSCB20</title>
-        <link rel="stylesheet" href="../static/home.css"/>
-        
-    </head>
 
-    <body>
+{% extends "template.html" %}
+{% block content %}
 
-        
-        
-        <div class ="heading">
-            <div class="webname"><b>CSCB20</b></div>
-            <div class="menu">
-                <div class = "loginRegister">
-                    <a href = "login">Login</a>
-                </div>
-                <div class = "loginRegister">
-                    <a href = "register">Register</a>
-                </div>
-            </div>
-        </div>
-
-        
          <div class = "cont">
             <img id="img-tag" src="../static/background.jpg"> 
             <h1 id ="web-title">CSCB20 - Introduction to Databases and Web Applications</h1>
-            <div class = "buttons">
-                <button type="button" id = "login">Login</button>
-                <button type="button" id = "register">Register</button>
-            </div>
-
+            <h4 id ="web-info">- If you have an account please login, otherwise you can register -</h4>
          </div>   
          
         
@@ -52,7 +25,6 @@
             <br>
             - Exclusions: CSC343H
             <br>
-            - Course Syllabus: <a class ="inside-links" href = "../static/CSCB20 Winter 2022 Syllabus.pdf" target="_blank"> syllabus</a>
         </p>
 
 
@@ -65,8 +37,4 @@
             </div>
         </div>
 
-
-        
-
-    </body>
-</html>
+{% endblock %}

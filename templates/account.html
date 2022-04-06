@@ -10,32 +10,34 @@
             {% with messages = get_flashed_messages()%}
                 {% if messages %}
                     {% for message in messages %}
-                        <h2>Welcome back {{session.name}}</h2>
+                        <h2>Welcome back, {{session.name}}</h2>
                     {% endfor %}
                 {% else %}
-                    <h2> Welcome to your CSCB20 website {{session.name}} </h2>
+                    <h2> Welcome to your CSCB20 website, {{session.name}} </h2>
                 {% endif %}
             {% endwith %}
     </div>  
-            
-    {% if session.role == "student" %}
-        <p class="overview">
-            As a student now you have access to see all the course material and your grades.
-            You can also submit a remark request or a feedback about your instructor. 
-            {% if session.role %}
-                {{session.role}}
-            {% endif %}
+    {% if session.name %} 
+        <p class = "overview">Username: {{session.name}} 
+            <br>   
+            First name: {{session.first}}  
+            <br>
+            Lasr name: {{session.last}}
+            <br>
+            Account Type: {{session.role}}
         </p>
-    {% else %}
-        <p class="overview">
-            As an instructor now you have access to see all the course material grades of your students.
-            You can also make changes to the grades. 
-            {% if session.role %}
-                {{session.role}}
-            {% endif %}
-        </p>
+        {% if session.role == "student" %}
+            <p class="overview">
+                As a student now you have access to see all the course material and your grades.
+                You can also submit a remark request or a feedback about your instructor. 
+            </p>
+        {% else %}
+            <p class="overview">
+                As an instructor now you have access to see all the course material and grades of your students.
+                You can also make changes to the grades and view student feedbacks. 
+            </p>
+        {% endif %}
     {% endif %}
-
 
     <div class = "footer">
         <div class = "footer-content">

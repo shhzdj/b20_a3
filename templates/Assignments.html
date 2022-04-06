@@ -1,55 +1,6 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>Assignments</title>
-        <link rel="stylesheet" href="../static/StyleAssignment.css"/>
-    </head>
-
-    
-    <div class ="heading">
-        <div class="webname"><b>CSCB20</b></div>
-        <div class="menu">
-            <div class = "home">
-                <a href = "index.html"> Home</a>
-            </div>
-            <div class = "tabs">
-                <a href = "calendar.html">Calendar</a>
-            </div>
-            <div class = "tabs">
-                <a href = "Assignments.html">Assignments</a>
-            </div>
-            <div class = "tabs">
-                <a href = "lectures.html">Lectures</a>
-            </div>
-            <div class = "tabs">
-                <a href = "labs.html">Labs</a>
-            </div>
-            <div class = "tabs">
-                <a href="https://piazza.com/class/kxj5alixpjg4ft" target="_blank">Piazza</a>
-            </div>
-            <div class = "tabs">
-                <a href="https://markus.utsc.utoronto.ca/cscb20w22/assignments" target="blank">MarkUs</a> 
-            </div>
-            <div class = "tabs">
-                <a href = "announcements.html">Announcements</a>
-            </div>
-            <div class = "tabs">
-                <a href = "resources.html">Resources</a>
-            </div>
-            <div class = "tabs">
-                <a href = "tests.html">Tests</a>
-            </div>
-            <div class = "tabs">
-                <a href = "feedback.html">Feedback</a>
-            </div>
-        </div>
-    </div>
-
-
-
-
+{% extends "templateStudent.html" %}
+{% block content %}
+    {% if session.name %}
         <h2 id = "header">Assignments</h2>
 
         <div class = "assignment-info">
@@ -113,13 +64,50 @@
             course.
         </div>
 
+        
+        <div class="Tests page title"  >
+            <h2>CSCB20 Tests</h2>
+            <p>Here you will find information and logistics regarding the upcoming tests in CSCB20. Note that as of 11 March 2022, we plan on having all  of our term tests and final exam in person.</p>
+            <hr>
+        </div>
+        
+            <h2> Midterm</h2>
+    
+    
+            <a href="../static/MidtermDetails.PNG">
+                <img src="../static/MidtermDetails.PNG" class=" float_right">
+            </a>
+    
+        <ul>
+            <li>There will be one midterm. The midterm will be 75min in length.</li>
+            <li>Date: 13 February, 2022, Monday</li>
+            <li>Time: 5pm - 6:15 pm</li>
+            <li>Location: <a href= "https://goo.gl/maps/4K1vpcmYtsjVC6zR7" class= "inside-links">HW215 </a> and <a href = "https://goo.gl/maps/4K1vpcmYtsjVC6zR" class="inside-links" > HW216 </a> depending on your last name as shown in the picture</li>
+        </ul>
+        <ul id="prep_info">
+            <br>
+           <p id="prep_p"> Preparing for the midterm:</p>
+    
+            <br>
+    
+            <li>Understand all parts of A1.</li>
+            <li> The midterm will cover everything on databases that we did from the start until part way through the week 6 lecture</li>
+            <li>Once you have done some preparation, you can practice on a previous midterm: <a href= "CSCB20_Sample_Lecture.pdf"> Term Test </a></li>
+            <li> You can take a look at some of the past exams papers in the <a href = "https://utsc.library.utoronto.ca/old-exams-repository" >UofT Old Exam repository</a> </li>
+         </ul>
+    
+         <p></p>
+    
+    
+        </div>
+
         <div class = "footer">
             <div class = "footer-content">
                 <a href="https://web.cs.toronto.edu/">Faculty of Computer Science at UofT</a>
                 <br>Site designed by Ayesha, Shruti and Shahzad
             </div>
-        </div>
-
+        </div>  
         
-    </body>
-</html>
+        
+    {% endif %}
+{% endblock %}

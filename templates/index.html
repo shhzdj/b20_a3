@@ -1,86 +1,9 @@
-<!DOCTYPE html>
+
+{% extends "templateStudent.html" %}
 {% block content %}
-    
-    
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>CSCB20</title>
-        <link rel="stylesheet" href="../static/style.css"/>
-        
-    </head>
-
-    <body>
-
-        
-        
-        <div class ="heading">
-            <div class="webname"><b>CSCB20</b></div>
-            <div class="menu">
-                <div class = "home">
-                    <a href = "index.html"> Home</a>
-                </div>
-                <div class = "tabs">
-                    <a href = "index.html"> Course Info</a>
-                </div>
-                <div class = "tabs">
-                    <a href = "calendar.html">Calendar</a>
-                </div>
-                <div class = "tabs">
-                    <a href = "Assignments.html">Assignments</a>
-                </div>
-                <div class = "tabs">
-                    <a href = "lectures.html">Lectures</a>
-                </div>
-                <div class = "tabs">
-                    <a href = "labs.html">Labs</a>
-                </div>
-                <div class = "tabs">
-                    <a href="https://piazza.com/class/kxj5alixpjg4ft" target="_blank">Piazza</a>
-                </div>
-                <div class = "tabs">
-                    <a href="https://markus.utsc.utoronto.ca/cscb20w22/assignments" target="blank">MarkUs</a> 
-                </div>
-                <div class = "tabs">
-                    <a href = "announcements.html">Announcements</a>
-                </div>
-                <div class = "tabs">
-                    <a href = "resources.html">Resources</a>
-                </div>
-                <div class = "tabs">
-                    <a href = "tests.html">Tests</a>
-                </div>
-                <div class = "tabs">
-                    <a href = "feedback">Feedback</a>
-                </div>
-                <div class = "loginRegister">
-                    <a href = "login">Login</a>
-                </div>
-                <div class = "loginRegister">
-                    <a href = "register">Register</a>
-                </div>
-            </div>
-        </div>
-
-        
-            
-        <img id="img-tag" src="../static/background.jpg">  
-        
-        
+   
+    {% if session.name %}
         <h1 id = "web-title">CSCB20 - Introduction to Databases and Web Applications</h1>
-
-        {% if session.name %}
-        {% with messages = get_flashed_messages()%}
-            {% if messages %}
-                {% for message in messages %}
-                    <h3>Welcome back {{session.name}}</h3>
-                {% endfor %}
-            {% else %}
-                <h3> Welcome {{session.name}} to CSCB20 webiste </h3>
-    
-            {% endif %}
-        {% endwith %}
 
         <br>
         <h3 id="overview_header">Overview</h3>
@@ -170,11 +93,6 @@
                 <br>Site designed by Ayesha, Shruti and Shahzad
             </div>
         </div>
+    {% endif %}
 
-
-        
-
-    </body>
-</html>
-{% endif %}
 {% endblock %}

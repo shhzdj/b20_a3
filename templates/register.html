@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>CSCB20</title>
-        <link rel="stylesheet" href="../static/template.css"/>
-        
-    </head>
-<body>
-    
+{% extends "template.html" %}
+{% block content %}
     
     <form action="http://127.0.0.1:5000/register" method = "post">
 
@@ -35,5 +26,13 @@
         <button type="register">Register</button>
         
     </form>
-</body>
+
+    <div class = "footer">
+        <div class = "footer-content">
+            <a href="https://web.cs.toronto.edu/">Faculty of Computer Science at UofT</a>
+            <br>Site designed by Ayesha, Shruti and Shahzad
+        </div>
+    </div>
+
+{% endblock %}
 

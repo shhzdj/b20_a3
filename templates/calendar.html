@@ -1,51 +1,6 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>Calendar</title>
-        <link rel="stylesheet" href="../static/StyleCalendar.css"/>
-    </head>
-    <body>
-        <div class ="heading">
-            <div class="webname"><b>CSCB20</b></div>
-            <div class="menu">
-                <div class = "home">
-                    <a href = "index.html"> Home</a>
-                </div>
-                <div class = "tabs">
-                    <a href = "calendar.html">Calendar</a>
-                </div>
-                <div class = "tabs">
-                    <a href = "Assignments.html">Assignments</a>
-                </div>
-                <div class = "tabs">
-                    <a href = "lectures.html">Lectures</a>
-                </div>
-                <div class = "tabs">
-                    <a href = "labs.html">Labs</a>
-                </div>
-                <div class = "tabs">
-                    <a href="https://piazza.com/class/kxj5alixpjg4ft" target="_blank">Piazza</a>
-                </div>
-                <div class = "tabs">
-                    <a href="https://markus.utsc.utoronto.ca/cscb20w22/assignments" target="blank">MarkUs</a> 
-                </div>
-                <div class = "tabs">
-                    <a href = "announcements.html">Announcements</a>
-                </div>
-                <div class = "tabs">
-                    <a href = "resources.html">Resources</a>
-                </div>
-                <div class = "tabs">
-                    <a href = "tests.html">Tests</a>
-                </div>
-                <div class = "tabs">
-                    <a href = "feedback.html">Feedback</a>
-                </div>
-            </div>
-        </div>
-        
+{% extends "templateStudent.html" %}
+{% block content %}
+    {% if session.name %}
         <h2 id = "c-header">
            Calendar 
         </h2>
@@ -66,7 +21,6 @@
                 <br>Site designed by Ayesha, Shruti and Shahzad
             </div>
         </div>
-
+    {% endif %}
         
-    </body>
-</html>
+{% endblock %}

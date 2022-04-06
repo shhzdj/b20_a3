@@ -9,21 +9,17 @@
     </head>
 
     <body>
-
+        {% if session.name %}
         <div class ="heading">
-            {% if session.name %}
-            <div class="webname"><a href = "account.html"><b>{{session.name}}</b></a></div>
+            <div class="webname"><a href = "account"><b>{{session.name}}</b></a></div>
             
             <div class="menu">
                 <div class = "home">
-                    <a href = "index.html"> Home</a>
+                    <a href = "index"> Home</a>
                 </div>
                 {% if session.role == "student" %}
                     <div class = "tabs">
-                        <a href = "calendar.html">Grades</a>
-                    </div>
-                    <div class = "tabs">
-                        <a href = "calendar.html">Remark</a>
+                        <a href = "calendar.html">Grades and Remark</a>
                     </div>
                 {% else %}
                     <div class = "tabs">
@@ -34,16 +30,16 @@
                     </div>
                 {% endif %} 
                 <div class = "tabs">
-                    <a href = "calendar.html">Calendar</a>
+                    <a href = "calendar">Calendar</a>
                 </div>
                 <div class = "tabs">
-                    <a href = "Assignments.html">Assignments</a>
+                    <a href = "Assignments">Assessments</a>
                 </div>
                 <div class = "tabs">
-                    <a href = "lectures.html">Lectures</a>
+                    <a href = "lectures">Lectures</a>
                 </div>
                 <div class = "tabs">
-                    <a href = "labs.html">Labs</a>
+                    <a href = "labs">Labs</a>
                 </div>
                 <div class = "tabs">
                     <a href="https://piazza.com/class/kxj5alixpjg4ft" target="_blank">Piazza</a>
@@ -52,10 +48,10 @@
                     <a href="https://markus.utsc.utoronto.ca/cscb20w22/assignments" target="blank">MarkUs</a> 
                 </div>
                 <div class = "tabs">
-                    <a href = "announcements.html">Announcements</a>
+                    <a href = "announcements">Announcements</a>
                 </div>
                 <div class = "tabs">
-                    <a href = "resources.html">Resources</a>
+                    <a href = "resources">Resources</a>
                 </div>
                 <div class = "tabs">
                     <a href = "feedback">Feedback</a>
@@ -65,8 +61,22 @@
                 </div>
                 
             </div>
-            {% endif %}
+            
+            
         </div>
+        {% else %}
+        <div class ="heading">
+            <div class="webname"><a href = "home"><b>CSCB20</b></a></div>
+                <div class='menu1'>
+                  <div class='links'>
+                    <div class='login'><a href = "login"> Login</a></div>
+                    <div class='reg'><a href = "register">Register</a></div>
+                  </div>
+                </div> 
+        </div>
+        <h2>Your session has ended or you have logged out</h2>
+        {% endif %} 
+        
 
         {% block content %}
         {% endblock %}

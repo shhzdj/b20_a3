@@ -1,4 +1,4 @@
-@media only screen and (min-width: 1150px) {
+
     .heading{
         display: flex;
         position: sticky;
@@ -9,28 +9,7 @@
         z-index: 3;
         border-bottom: 2px solid #5584c2;
     }
-    .menu{
-        display: flex;
-        position: sticky;
-        top:0;  
-    }
-    .webname{
-        width: 50px;
-        display: flex;
-        position: sticky;
-        justify-content: space-around;
-        font-size: large;
-        color: #5584c2;
-    }
-    .loginRegister{
-        margin-left:20px;
-        font-weight: bold;
-        flex:2
-    }
-}
-
-@media only screen and (max-width: 1149px) and (min-width:950px) {
-    .heading{
+    .menu-container {
         display: flex;
         position: sticky;
         top: 0;
@@ -38,48 +17,28 @@
         color: white;
         padding: 2%; 
         z-index: 3;
-        border-bottom: 2px solid #5584c2;  
-    }
-    .menu{
-        display: flex;
-        position: sticky;
-        top:0;  
-    }
-    .webname{
-        width: 10px;
-        display: flex;
-        /*add this*/
-        margin-left: 10px;
-        position: sticky;
-        justify-content: space-around;
-        
-        color: #5584c2;
-    }
-}
-
-@media screen and (max-width: 950px) {
-    .heading{
-        position: sticky;
-        top: 0;
-        background-color:black;
-        color: white;
-        padding: 2%; 
         border-bottom: 2px solid #5584c2;
-        z-index: 3;
-    }
-    .menu{
-        position: sticky;
-        top:0;  
-    }
-    .webname{
-        width: 100px;
-        position: sticky;
-        font-size: large;
-        color: #5584c2;
-    }
-}
+      }
+      
+      .menu {
+        width: 900px;
+        display: flex;
+        justify-content: space-around;
+      }
+    
+      .links {
+        display: flex;
+        justify-content: flex-end;
+      }
+      
+      .login {
+        margin-left: 200px;
+      }
 
-
+      .reg{
+          margin-left: 20px;
+      }
+    
 
 .overview{
     color:white;
@@ -123,20 +82,14 @@ a:hover {
     color:rgb(39, 39, 128);
 }
 
-@media only screen and (min-width: 601px) {
-    body{
-        font-family:verdana;
-        background-color:black;
-    }
+
+body{
+    font-family:verdana;
+    background-color:black;
 }
 
-@media only screen and (max-width: 601px) {
-    body{
-        font-family:verdana;
-        background-color:black;
-        font-size: smaller;
-    }
-}
+
+
 
 
 #img-tag{

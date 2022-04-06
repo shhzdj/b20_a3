@@ -98,13 +98,13 @@ def register():
             type
         ]
         add_users(reg_details)
+        flash('you have successfully registered!')
         return redirect(url_for('login'))
         
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
     if request.method == 'GET':
         if 'name' in session:
-            flash("already logged in")
             return redirect(url_for('account'))
         else:
             return render_template('login.html')
@@ -119,8 +119,12 @@ def login():
             return render_template('login.html')
         else:
             role = user.type
+            firstn = user.firstName
+            lastn=user.lastName
             session['name']=username
-            session['role']=role
+            session['role']= role
+            session['first'] = firstn
+            session['last'] = lastn
             session.permanent = True
             return redirect(url_for('account'))
 
@@ -129,6 +133,36 @@ def login():
 def logout():
     session.pop('name', default = None)
     return redirect(url_for('home'))
+
+@app.route('/Assignments')
+def assignments():
+    pagename = 'Assignments'
+    return render_template('Assignments.html',pagename = pagename)
+
+@app.route('/calendar')
+def calendar():
+    pagename = 'calendar'
+    return render_template('calendar.html',pagename = pagename)
+
+@app.route('/labs')
+def labs():
+    pagename = 'labs'
+    return render_template('labs.html',pagename = pagename)
+
+@app.route('/lectures')
+def lectures():
+    pagename = 'lectures'
+    return render_template('lectures.html',pagename = pagename)
+
+@app.route('/announcements')
+def announcements():
+    pagename = 'announcements'
+    return render_template('announcements.html',pagename = pagename)
+
+@app.route('/resources')
+def resources():
+    pagename = 'resources'
+    return render_template('resources.html',pagename = pagename)
 
 @app.route('/feedback', methods = ['GET', 'POST'])
 def enter_feedback():
@@ -191,14 +225,16 @@ def student_grades():
             return render_template('student_grades.html')
 
 def add_remark(remark_details):
-    student_id = 1
+    username = session['name']
+    student = users.query.filter_by(username = username).first()
+    student_id = student.id
     remark_request = Remark(id = student_id, assessment = remark_details[0], remark = remark_details[1])
     db.session.add(remark_request)
     db.session.commit()
 
 def query_student_grades():
-    #username = session[name] how do i get the logged in session person
-    student = users.query.filter_by(username = 'purva').first()
+    username = session['name']
+    student = users.query.filter_by(username = username).first()
     student_id = student.id
     query_grades = Marks.query.filter_by(id = student_id)
     #return student

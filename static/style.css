@@ -28,7 +28,8 @@
     }
     .tabs{
         margin-left:20px;
-        flex:2;  
+        width: 100%;
+        flex:3;  
     }
     .loginRegister{
         margin-left:20px;
@@ -72,7 +73,7 @@
     .tabs{
         margin-left:10px;
         font-size: medium;
-        flex:1;  
+        flex:3;  
     }
 }
 
@@ -424,7 +425,769 @@ a:hover {
 }
 
 
+/*for assignments*/
+#header{
+    color:white;
+    margin-left: 110px;
+    margin-right: 110px;
+    margin-top:50px;
+}
+
+.assignment-info{
+    color:white;
+    margin-left: 120px;
+    margin-right: 120px;
+    margin-top:30px;
+}
+
+
+@media only screen and (min-width: 1000px) {
+    #header{
+        color:white;
+        margin-left: 5%;
+        margin-top:50px;
+    }
+    .assignment-info{
+        color:white;
+        margin-left: 6%;
+        margin-top:30px;
+    }
+    #assignment-name{
+        margin-right: 30px;
+        text-align: left;
+    }
+    #weight{
+        margin-right:20px;
+        text-align: left;
+    }
+    #handout{
+        margin-right:30px;
+        text-align: left;
+    }
+
+    #summary{
+        margin-right:200px;
+        text-align: left;
+    }
+    #due-date{
+        margin-right:50px;
+        text-align: left;
+    }
+
+    #sample-sol{ 
+        margin-right:30px;
+        text-align: left;
+    }
+    .assignment-table{
+        display: table;
+        width: 600px;
+        border-top:1px solid white;
+        margin-left:90px;
+        margin-right:90px;
+        margin-top:30px;  
+    }
+}
+
+
+@media only screen and (max-width: 1000px) and (min-width:800px) {
+
+    #header{
+        color:white;
+        margin-left: 5%;
+        margin-top:50px;  
+    }
+    .assignment-info{
+        color:white;
+        margin-left: 6%;
+        margin-top:30px;
+    }
+    #assignment-name{
+        margin-right: 20px;
+        text-align: left;
+    }
+    #weight{
+        margin-right:10px;
+        text-align: left;
+    }
+    #handout{
+        margin-right:30px;
+        text-align: left;
+    }
+    #summary{
+        margin-right:100px;
+        text-align: left;
+    }
+    #due-date{
+        margin-right:30px;
+        text-align: left;
+    }
+    #sample-sol{ 
+        margin-right:10px;
+        text-align: left;
+    }
+    .assignment-table{
+        display: table;
+        width: 300px;
+        border-top:1px solid white;
+        margin-left:30px;
+        margin-top:30px;  
+    }
+}
+
+
+@media only screen and (max-width:800px) {
+    #header{
+        color:white;
+        margin-left: 5%;
+        margin-top:50px;
+    }
+    .assignment-info{
+        color:white;
+        margin-left: 6%;
+        margin-top:30px;  
+    }
+    #assignment-name{
+        margin-right: 5px;
+        text-align: left;
+    }
+    #weight{
+        margin-right:5px;
+        text-align: left;
+    }
+    #handout{
+        margin-right:5px;
+        text-align: left;
+    }
+
+    #summary{
+        margin-right:5px;
+        text-align: left;
+    }
+    #due-date{
+        margin-right:5px;
+        text-align: left;
+    }
+
+    #sample-sol{ 
+        margin-right:5px;
+        text-align: left;
+    }
+
+    .assignment-table{
+        display: table;
+        width: 200px;
+        border-top:1px solid white;
+        margin-left:0px;
+        margin-right:0px;
+        margin-top:30px;  
+        font-size: x-small;
+    }
+}
+
+/*for calendar*/
+#c-header{
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.calendar-info{
+    margin-left: 7%;
+}
+
+.frame-container {
+    position: relative;
+    width: 100%;
+   
+    overflow: hidden;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    margin-bottom: 50px;
+  }
+  
+  .i-frame{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin-top: 5%;
+    margin-left:9%;
+    margin-right:9%;
+    width: 80%;
+    height: 100%;
+  }
+
+
+
+  /*for labs*/
+
+#labs_header{
+    margin-left: 1in;
+    margin-right: 1in;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 2%;
+    padding-bottom: 0;
+    
+}
+
+
+#lab-table-header{
+    display: table-header-group;
+    background-color: gray;
+    background-color: #062c5e;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+#lab-table {
+    width: 100%;
+    display: table;
+}
+
+.lab-table-header-row{
+    display: table-row;
+    background-color: #062c5e;
+    font-weight: bold;
+    margin:100px;
+}
+#lab-table-body{
+    display: table-row-group;
+}
+.lab-table-row{
+    display: table-row;
+}
+.table-body-cell{
+    display: table-cell;
+    border: 1px solid #dddddd;
+    color:white;
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+}
+
+/*for lectures*/
+h2{
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Verdana;
+    /*font-size: 28px;*/
+    color:white;
+}
+p{
+    text-align: center;
+    font-style: italic;
+    font-family: Trebuchet;
+    /*font-size: 18px;*/
+    color:azure;
+
+
+}
+.hr{
+    display:inline-block;
+    width: 100%;
+    border-top: 2px solid;
+    color: azure;
+    margin-bottom: 20px;
+   
+}
+.Lectures_header{
+    background-color: black;
+    color: azure;
+}
+
+.Lecture_Table{
+    display: table;
+    justify-content: center;
+    height: 100px;
+    border-collapse: collapse;
+    box-shadow: 0 5px 5px;
+    width: 100%;
+    align-items: center; 
+}
+
+.Lecture_Table .Lecture_Table-Tr {
+    display: table-row;
+    background-color: black;
+    color:azure;
+    font-family: Verdana ;
+    justify-content: center;
+    border-collapse: collapse;
+    width:100%;
+    padding: 25px;
+    
+
+}
+.Lecture_Table .Lecture_Table-Tr:nth-child(even){
+    background-color: #101010;
+}
+.Lecture_Table .Lecture_Table-Tr:hover{
+    background-color: #202020;
+}
+
+.Lecture_Table .Lecture_Table-Tr .Lecture_Table-Td{
+    display: table-cell;
+    padding: 20px;
+    
+    text-align: left;
+    overflow: hidden;
+
+}
+
+.Lecture_Table .header{
+    background-color: darkgrey;
+    color: black;
+    font-family: Trebuchet MS;
+    box-shadow: 0 5px 10px white;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
 
 
 
 
+.footer{
+    position: static;
+    display: grid;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    border-top: 2px solid #5584c2;
+    color:white;
+    text-align: center; 
+}
+
+.footer-content{
+    margin-top: 20px;
+    font-size: x-small;
+}
+
+
+@media  screen and (max-width: 768px){
+    body{
+        
+        margin-right: 0%;
+        width: 100%;
+        word-wrap: break-word;
+
+    }
+
+    h2{
+        
+        text-align: center ;
+        position:relative;
+        padding-bottom: 0.5%;
+        word-wrap: break-word;
+        position:relative;
+    }
+    p{
+        text-align: center;
+        position:relative;
+        margin-left: 5%;
+        margin-right: 5%;
+        word-wrap: break-word;
+        overflow-wrap:break-word;
+        
+
+    }
+    hr{
+        width:100%;
+    }
+    .Lecture_Table{
+        width: 100%;
+    }
+    .Lecture_Table .Lecture_Table-Tr{
+        width:100%;
+        word-wrap: break-word;
+    }
+    .Lecture_Table .Lecture_Table-Tr .Lecture_Table-Td{
+        position:relative;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        min-width: 15%; 
+        max-width:25%;
+    }
+
+}
+
+
+/*for announcements */
+h1{
+    text-align:center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    
+}
+
+
+p{
+    text-align: center;
+    font-style: italic;
+    font-family: Trebuchet;
+    font-size: 18px;
+    color:azure;
+
+
+}
+
+section{
+    text-align:left;
+    margin-left: 100px;
+}
+
+.hr{
+    display:inline-block;
+    width: 100%;
+    border-top: 2px solid;
+    color: azure;
+    margin-bottom: auto 20px;
+   
+}
+.inside-links{
+    color:#5584c2;
+}
+.inside-links:visited{
+    
+    color:rgb(39, 39, 128);
+}
+img{
+    width: 20px;
+    height:20px;
+}
+
+
+li{
+    font-size: 12px;
+    font-style: italic;
+}
+.name{
+    font-weight: bold;
+    text-transform: capitalize;
+    display:inline;
+   
+}
+.date{
+    font-style: italic;
+    font-size:12px;
+}
+ul{
+    color: white;
+}
+
+
+
+/*for resources*/
+h1{
+    color:white;
+}
+h2{
+    color:white;
+}
+
+h3{
+    color:white;
+}
+
+h4{
+    color:white;
+}
+
+@media screen and (max-width: 950px) {
+
+    #resources_header{
+        margin-right: 1in;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 2%;
+        padding-bottom: 0;
+    }
+    
+    #online_resources_header{
+        margin-right: 1in;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 2%;
+        padding-bottom: 0;
+    }
+    
+    #software_header{
+        margin-right: 1in;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 3%;
+        padding-bottom: 0;
+    }
+    
+    #mathlab_header{
+        margin-right: 1in;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 2%;
+        padding-bottom: 0;
+    }
+    
+    #course_website_link{
+        margin-right: 1in;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 2%;
+        padding-bottom: 0;
+        color: white;
+    }
+    
+    #MySQL_link{
+        margin-right: 1in;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 2%;
+        padding-bottom: 0;
+        color: white;
+    }
+    
+    #prof_email{
+        margin-right: 1in;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 2%;
+        padding-bottom: 0;
+        color: white;
+    }
+    
+    #piazza{
+        margin-right: 1in;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 2%;
+        padding-bottom: 0;
+        color: white;
+    }
+    
+    .putty_link{
+        text-decoration: underline;
+        color: #5584c2;
+        font-weight: bold;
+        font-style: italic;
+    }
+    
+    
+    
+    .course_website_info{
+        color:white;
+        margin-right: 1in;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 0;
+    
+    }
+    
+    .piazza_info{
+        color:white;
+        margin-right: 1in;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 0;
+    
+    }
+    
+    .software_info{
+        color:white;
+        margin-right: 1in;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 2%;
+    
+    }
+}
+
+
+@media only screen and (min-width: 950px){
+    #resources_header{
+        margin-left: 1in;
+        margin-right: 1in;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 2%;
+        padding-bottom: 0;
+    }
+    
+    #online_resources_header{
+        margin-left: 1in;
+        margin-right: 1in;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 2%;
+        padding-bottom: 0;
+    }
+    
+    #software_header{
+        margin-left: 1in;
+        margin-right: 1in;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 3%;
+        padding-bottom: 0;
+    }
+    
+    #mathlab_header{
+        margin-left: 1in;
+        margin-right: 1in;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 2%;
+        padding-bottom: 0;
+    }
+    
+    #course_website_link{
+        margin-left: 1in;
+        margin-right: 1in;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 2%;
+        padding-bottom: 0;
+        color: white;
+    }
+    
+    #MySQL_link{
+        margin-left: 1in;
+        margin-right: 1in;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 2%;
+        padding-bottom: 0;
+        color: white;
+    }
+    
+    #prof_email{
+        margin-left: 1in;
+        margin-right: 1in;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 2%;
+        padding-bottom: 0;
+        color: white;
+    }
+    
+    #piazza{
+        margin-left: 1in;
+        margin-right: 1in;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 2%;
+        padding-bottom: 0;
+        color: white;
+    }
+    
+    .putty_link{
+        text-decoration: underline;
+        color: #5584c2;
+        font-weight: bold;
+        font-style: italic;
+    }
+    
+    
+    
+    .course_website_info{
+        color:white;
+        margin-left: 1in;
+        margin-right: 1in;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 0;
+    
+    }
+    
+    .piazza_info{
+        color:white;
+        margin-left: 1in;
+        margin-right: 1in;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 0;
+    
+    }
+    
+    .software_info{
+        color:white;
+        margin-left: 1in;
+        margin-right: 1in;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 2%;
+    
+    }
+}
+
+
+.menu1 {
+    width: 900px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .links {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .login {
+    margin-left: 200px;
+  }
+
+  .reg{
+      margin-left: 20px;
+  }
+
+
+
+
+  /*for test*/
+  h1{
+    text-align:center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:white;
+    
+}
+p{
+    text-align: center;
+    font-style: italic;
+    font-family: Trebuchet;
+    font-size: 18px;
+    color:azure;
+
+
+}
+
+h2{
+    text-align:center;
+    font-family: Verdana;
+    color:white;
+    padding: 20px;
+    
+}
+
+.float_right{
+    float:right;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.prep_info{
+    background-color: black;
+    font-size: 16px;
+    font-family:verdana;
+    color:azure ;
+
+}
+
+#prep_p{
+
+    background-color: black;
+    font-size: 18px;
+    font-family:verdana;
+    color:#5584c2 ;
+    text-align: left;
+    margin-left: 10px;
+    text-decoration: underline;
+
+}
