@@ -1,0 +1,16 @@
+<head>
+    <meta charset="utf-8">
+   <title>Enter Student Grades</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='template.css') }}">
+</head>
+
+
+{% block content %}
+    <h1>
+        Student Grade was added/changed successfully!
+    </h1>
+
+    <button type = "returnToGrades"><a href = "{{ url_for('grades') }}"> Return to Student Grades </a></button>
+
+
+{% endblock %}
