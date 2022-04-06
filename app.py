@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+from queue import Empty
 from flask import Flask, render_template, url_for, flash, redirect, request, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
@@ -98,6 +99,7 @@ def register():
             hashed_password,
             type
         ]
+            
         add_users(reg_details)
         flash('you have successfully registered!')
         return redirect(url_for('login'))
@@ -165,39 +167,6 @@ def resources():
     pagename = 'resources'
     return render_template('resources.html',pagename = pagename)
 
-@app.route('/feedback', methods = ['GET', 'POST'])
-def enter_feedback():
-    if request.method == 'GET':
-        return render_template('feedback.html')
-    else:
-        
-
-        #username = request.form['Username']
-        #feedback = request.form['Feedback']
-        #user = users.query.filter_by(username = username)
-        #if not user or user.usertype != 'instructor':
-           # flash('Please enter a vald instructor username')
-           ## return render_template('feedback.html')
-       # else:
-        #feedback_details = [
-        #    username,
-        #    feedback
-       # ]
-       username = request.form['Username']
-      
-       person = users.query.filter_by(username = username).first()
-       if person:
-           person_id = person.id
-       
-       feedback = request.form['Feedback']
-       feedback_details =[ 
-           
-           person_id,
-           feedback]
-            
-       
-       add_feedback(feedback_details)
-       return redirect(url_for('enter_feedback'))
 
 
 
@@ -206,24 +175,6 @@ def add_feedback(feedback_details):
     db.session.add(anon_feedback)
     db.session.commit()
 
-@app.route('/student_grades', methods = ['GET', 'POST'])
-def student_grades():
-    if request.method == 'GET':
-        query_grades_result = query_student_grades()
-        return render_template('student_grades.html', query_grades_result = query_grades_result )
-    else:
-        assessment = request.form['Assessment']
-        reason = request.form['Reason']
-        if not hasattr(Marks, assessment):
-            flash('Please enter a valid assessment')
-            return render_template('student_grades.html')
-        else:
-            remark_details = [
-                assessment,
-                reason
-            ]
-            add_remark(remark_details)
-            return render_template('student_grades.html')
 
 def add_remark(remark_details):
     username = session['name']
@@ -403,6 +354,48 @@ def change_grades(grade_details):
    # StudentRegradeStatus = StudentRegrade.filter_by(assessment == str(grade_details[1]))
     StudentRegrade.status = regradeStatus
     db.session.commit()
+
+#
+
+@app.route('/student_grades', methods = ['GET', 'POST'])
+def student_grades():
+    if request.method == 'GET':
+        query_grades_result = query_student_grades()
+        return render_template('student_grades.html', query_grades_result = query_grades_result)
+    else:
+        assessment = request.form['Assessment']
+        reason = request.form['Reason']
+        if not hasattr(Marks, assessment):
+            flash('Please enter a valid assessment')
+            return render_template('student_grades.html')
+        else:
+            remark_details = [
+                assessment,
+                reason
+            ]
+            add_remark(remark_details)
+            return render_template('request_success.html')
+            
+    
+@app.route('/feedback', methods = ['GET', 'POST'])
+def enter_feedback():
+    if request.method == 'GET':
+        return render_template('feedback.html')
+    else:
+        username = request.form['Username']
+        feedback = request.form['Feedback']
+        user = users.query.filter_by(username = username).first()
+        if not user or user.type != 'instructor':
+            flash('Please enter a vald instructor username')
+            return render_template('feedback.html')
+        else:
+            feedback_details = [
+                username,
+                feedback
+            ]
+            add_feedback(feedback_details)
+            return render_template('feedback_success.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)

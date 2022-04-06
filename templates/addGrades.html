@@ -1,9 +1,7 @@
-<head>
-    <meta charset="utf-8">
-   <title>Enter Student Grades</title>
-   <link rel="stylesheet" href="{{ url_for('static', filename='template.css') }}">
-</head>
+{% extends "templateStudent.html" %}
+
 {% block content %}
+{% if session.name %}
         <form action="http://127.0.0.1:5000/addGrades" method = "post">
             <label for="StudentID">StudentID</label>
             <input type="number" id="StudentID" name="StudentID">
@@ -32,4 +30,5 @@
   
             <button type="submit">Submit</button>
         </form>
+        {% endif %}
 {% endblock %}

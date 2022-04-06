@@ -1,8 +1,4 @@
-<head>
-    <meta charset="utf-8">
-   <title>Enter Student's updated Mark</title>
-   <link rel="stylesheet" href="{{ url_for('static', filename='template.css') }}">
-</head>
+{% extends "templateStudent.html" %}
 {% block content %}
         <form action="http://127.0.0.1:5000/RemarkAction" method = "post">
             <label for="StudentID">StudentID</label>

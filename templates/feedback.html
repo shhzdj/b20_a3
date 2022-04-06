@@ -1,12 +1,13 @@
-{% extends "template.html" %}
-{% with messages = get_flashed_messages(with_categories = True) %}
-    {% if messages %}
-        {% for category, message in messages %}
-            <div>{{ category }} - {{ message }}</div>
-        {% endfor %}
-    {% endif %}
-{% endwith %}
-{% block content %}
+{% extends "templateStudent.html" %}
+    {% block content %}
+    {% if session.name %}
+        {% with messages = get_flashed_messages(with_categories = True) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div id = "error-msg">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
 
         <div class = "feedback_form"> 
 
@@ -22,4 +23,6 @@
                 <br>
                 <button type="Submit">Submit</button>
             </form>
-{% endblock %}
+        {% endif %}
+    {% endblock %}
+

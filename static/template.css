@@ -159,6 +159,10 @@ color: white;
 text-decoration: none;
 transition: color .5s ease-in-out, box-shadow .5s ease-in-out;
 }
+
+.buttons{
+  color:black;
+}
 a:hover {
 box-shadow: inset 300px 0 0 0 white ;
 color: #224f8b;
