@@ -1,0 +1,86 @@
+<head>
+    <link rel = "stylesheet" href = "../static/instructorFeedback.css"> 
+</head>
+<br>
+
+<div class ="heading">
+    <div class="webname"><b>CSCB20</b></div>
+    <div class="menu">
+        <div class = "home">
+            <a href = "index"> Home</a>
+        </div>
+        <div class = "tabs">
+            <a href = "calendar.html">Calendar</a>
+        </div>
+        <div class = "tabs">
+            <a href = "assesments.html">Assignments</a>
+        </div>
+        <div class = "tabs">
+            <a href = "lectures.html">Lectures</a>
+        </div>
+        <div class = "tabs">
+            <a href = "labs.html">Labs</a>
+        </div>
+        <div class = "tabs">
+            <a href="https://piazza.com/class/kxj5alixpjg4ft" target="_blank">Piazza</a>
+        </div>
+        <div class = "tabs">
+            <a href="https://markus.utsc.utoronto.ca/cscb20w22/assignments" target="blank">MarkUs</a> 
+        </div>
+        <div class = "tabs">
+            <a href = "announcements.html">Announcements</a>
+        </div>
+        <div class = "tabs">
+            <a href = "resources.html">Resources</a>
+        </div>
+        <div class = "tabs">
+            <a href = "tests.html">Tests</a>
+        </div>
+        <div class = "tabs">
+            <a href = "feedback.html">Feedback</a>
+        </div>
+    </div>
+</div>
+<br>
+
+
+
+
+<h2 id = "header">Students Feedback</h2>
+
+
+<br>
+<br>
+
+<div class = "feedback-table">
+    <div class = "h-rows">
+        
+
+        <div class = "t-cells">
+            <h3 id = "feedback">Feedback</h3>
+        </div>
+
+    </div>
+
+    {% for feedback in query_inst_feedback_result %}
+    
+    <div class = "t-rows">
+        
+        <div class = "t-cells"><li>{{ feedback.feedback }} </li></div>
+        
+    </div>
+    {% endfor %}
+
+</div>
+
+<br>
+
+
+
+
+<div class = "footer">
+    <div class = "footer-content">
+        <a href="https://web.cs.toronto.edu/">Faculty of Computer Science at UofT</a>
+        <br>Site designed by Ayesha, Shruti and Shahzad
+    </div>
+</div>
