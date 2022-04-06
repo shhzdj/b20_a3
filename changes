@@ -1,0 +1,42 @@
+@app.route('/student_grades', methods = ['GET', 'POST'])
+def student_grades():
+    if request.method == 'GET':
+        query_grades_result = query_student_grades()
+        instructors = get_all_instructors()
+        return render_template('student_grades.html', query_grades_result = query_grades_result, instructors = instructors )
+    else:
+        assessment = request.form['Assessment']
+        reason = request.form['Reason']
+        if not hasattr(Marks, assessment):
+            flash('Please enter a valid assessment')
+            return render_template('student_grades.html')
+        else:
+            remark_details = [
+                assessment,
+                reason
+            ]
+            add_remark(remark_details)
+            return render_template('request_success.html')
+            
+def get_all_instructors():
+    instructors = users.query.filter_by(type = 'Instructor')
+    return instructors
+    
+@app.route('/feedback', methods = ['GET', 'POST'])
+def enter_feedback():
+    if request.method == 'GET':
+        return render_template('feedback.html')
+    else:
+        username = request.form['Username']
+        feedback = request.form['Feedback']
+        user = users.query.filter_by(username = username).first()
+        if not user or user.type != 'instructor':
+            flash('Please enter a vald instructor username')
+            return render_template('feedback.html')
+        else:
+            feedback_details = [
+                username,
+                feedback
+            ]
+            add_feedback(feedback_details)
+            return render_template('feedback_success.html')
