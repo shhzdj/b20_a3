@@ -31,6 +31,34 @@ class feedback(db.Model):
 
     def __repr__(self):
         return f"feedback('{self.id}', '{self.feedback}')"
+    
+class Marks(db.Model):
+    __tablename__ = 'Marks'
+    id = db.Column(db.Integer,nullable = False, primary_key = True)
+    A1 = db.Column(db.Integer)
+    A2 = db.Column(db.Integer)
+    A3 = db.Column(db.Integer)
+    Midterm = db.Column(db.Integer)
+    Tut = db.Column(db.Integer)
+    final = db.Column(db.Integer)
+    overall = db.Column(db.Integer)
+
+    #website_data = db.relationship('users', backref = 'student', lazy = True)
+
+    
+    def __repr__(self):
+        return f"Marks ('{self.id}', '{self.A1}', '{self.A2}', '{self.A3}', '{self.Midterm}', '{self.Tut}','{self.final}', '{self.overall}')"
+    
+class Remark(db.Model):
+    __tablename__ = 'Remark'
+    id = db.Column(db.Integer,nullable = False, primary_key = True)
+    assessment = db.Column(db.Text, nullable = False, primary_key = True)
+    remark = db.Column(db.Text)
+    status = db.Column(db.Text)
+
+    
+    def __repr__(self):
+        return f"Remark ('{self.id}', '{self.assessment}', '{self.remark}', '{self.status}')"
 
 @app.route('/')
 @app.route('/home')
@@ -143,6 +171,38 @@ def add_feedback(feedback_details):
     db.session.add(anon_feedback)
     db.session.commit()
 
+@app.route('/student_grades', methods = ['GET', 'POST'])
+def student_grades():
+    if request.method == 'GET':
+        query_grades_result = query_student_grades()
+        return render_template('student_grades.html', query_grades_result = query_grades_result )
+    else:
+        assessment = request.form['Assessment']
+        reason = request.form['Reason']
+        if not hasattr(Marks, assessment):
+            flash('Please enter a valid assessment')
+            return render_template('student_grades.html')
+        else:
+            remark_details = [
+                assessment,
+                reason
+            ]
+            add_remark(remark_details)
+            return render_template('student_grades.html')
+
+def add_remark(remark_details):
+    student_id = 1
+    remark_request = Remark(id = student_id, assessment = remark_details[0], remark = remark_details[1])
+    db.session.add(remark_request)
+    db.session.commit()
+
+def query_student_grades():
+    #username = session[name] how do i get the logged in session person
+    student = users.query.filter_by(username = 'purva').first()
+    student_id = student.id
+    query_grades = Marks.query.filter_by(id = student_id)
+    #return student
+    return query_grades
 
 def add_users(reg_details):
     user = users(username = reg_details[0], email = reg_details[1], firstName = reg_details[2], lastName=reg_details[3],  password = reg_details[4], type = reg_details[5])
