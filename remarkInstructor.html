@@ -1,0 +1,109 @@
+<head>
+    <link rel = "stylesheet" href = "../static/remarkInstructor.css"> 
+</head>
+<br>
+
+<div class ="heading">
+    <div class="webname"><b>CSCB20</b></div>
+    <div class="menu">
+        <div class = "home">
+            <a href = "index"> Home</a>
+        </div>
+        <div class = "tabs">
+            <a href = "calendar.html">Calendar</a>
+        </div>
+        <div class = "tabs">
+            <a href = "assesments.html">Assignments</a>
+        </div>
+        <div class = "tabs">
+            <a href = "lectures.html">Lectures</a>
+        </div>
+        <div class = "tabs">
+            <a href = "labs.html">Labs</a>
+        </div>
+        <div class = "tabs">
+            <a href="https://piazza.com/class/kxj5alixpjg4ft" target="_blank">Piazza</a>
+        </div>
+        <div class = "tabs">
+            <a href="https://markus.utsc.utoronto.ca/cscb20w22/assignments" target="blank">MarkUs</a> 
+        </div>
+        <div class = "tabs">
+            <a href = "announcements.html">Announcements</a>
+        </div>
+        <div class = "tabs">
+            <a href = "resources.html">Resources</a>
+        </div>
+        <div class = "tabs">
+            <a href = "tests.html">Tests</a>
+        </div>
+        <div class = "tabs">
+            <a href = "feedback.html">Feedback</a>
+        </div>
+    </div>
+</div>
+<br>
+
+
+
+
+<h2 id = "header">Student Remark Requests</h2>
+{% block content %}
+
+<br>
+<br>
+{% with messages = get_flashed_messages(with_categories = true) %}
+{% if messages %}
+    <ul class = flashes>
+    {% for category, message in messages %}
+        <li class = "{{ category }}"><strong>Error: </strong>{{ message }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+<div class = "remark-table">
+    <div class = "h-rows">
+        <div class = "t-cells">
+            <h3 id = "id">id</h3>
+        </div>
+
+        <div class = "t-cells">
+            <h3 id = "assessment">assessment</h3>
+        </div>
+        <div class = "t-cells">
+            <h3 id = "remark">remark</h3>
+        </div>
+        <div class = "t-cells">
+            <h3 id = "action">action</h3>
+        </div>
+        <div class = "t-cells">
+            <h3 id = "status">status</h3>
+        </div>
+        
+
+    </div>
+
+    {% for request in query_remark_result %}
+    
+    <div class = "t-rows">
+        <div class = "t-cells">{{ request.id }} </div>
+        <div class = "t-cells">{{ request.assessment }} </div>
+        <div class = "t-cells"> {{ request.remark }}</div>
+        <div class = "t-cells"><p><a href = "RemarkAction">Update Student Grades Here </a></p> </div>
+        <div class = "t-cells">{{ request.status }} </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+<br>
+{% endwith %}
+
+
+
+{% endblock %}
+<div class = "footer">
+    <div class = "footer-content">
+        <a href="https://web.cs.toronto.edu/">Faculty of Computer Science at UofT</a>
+        <br>Site designed by Ayesha, Shruti and Shahzad
+    </div>
+</div>
