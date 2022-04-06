@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+{% block content %}
+    
+    
 <html>
     <head>
         <meta charset="utf-8">
@@ -17,6 +20,9 @@
             <div class="menu">
                 <div class = "home">
                     <a href = "index.html"> Home</a>
+                </div>
+                <div class = "tabs">
+                    <a href = "index.html"> Course Info</a>
                 </div>
                 <div class = "tabs">
                     <a href = "calendar.html">Calendar</a>
@@ -63,6 +69,18 @@
         
         
         <h1 id = "web-title">CSCB20 - Introduction to Databases and Web Applications</h1>
+
+        {% if session.name %}
+        {% with messages = get_flashed_messages()%}
+            {% if messages %}
+                {% for message in messages %}
+                    <h3>Welcome back {{session.name}}</h3>
+                {% endfor %}
+            {% else %}
+                <h3> Welcome {{session.name}} to CSCB20 webiste </h3>
+    
+            {% endif %}
+        {% endwith %}
 
         <br>
         <h3 id="overview_header">Overview</h3>
@@ -158,3 +176,5 @@
 
     </body>
 </html>
+{% endif %}
+{% endblock %}

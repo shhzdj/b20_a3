@@ -1,11 +1,12 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 from flask import Flask, render_template, url_for, flash, redirect, request, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret_key'
+app.config['SECRET_KEY'] = '"\x88\x80\xc1\xact\x07\xa7d\xc8\xa5G\x0e\xf0{y'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes = 1)
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 
@@ -42,6 +43,17 @@ def index():
     pagename = 'index'
     return render_template('index.html',pagename = pagename)
 
+@app.route('/account')
+def account():
+    pagename = 'account'
+    return render_template('account.html',pagename = pagename)
+
+app.route('/logout')
+def logout():
+    session.pop('name', default=None)
+    session.clear('name', default=None)
+    return redirect(url_for('home'))
+
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
     if request.method == 'GET':
@@ -67,17 +79,26 @@ def register():
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
     if request.method == 'GET':
-        return render_template('login.html')
+        if 'name' in session:
+            flash("already logged in")
+            return redirect(url_for('account'))
+        else:
+            return render_template('login.html')
     else:
         username = request.form['Username']
         password= request.form['Password']
         user = users.query.filter_by(username = username).first()
+        
         if not user or not bcrypt.check_password_hash(user.password,password):
-            flash('Please check your login details', 'error')
+            
+            flash('Please check your login details!', 'error')
             return render_template('login.html')
         else:
+            role = user.type
             session['name']=username
-            return redirect(url_for('index'))
+            session['role']=role
+            session.permanent = True
+            return redirect(url_for('account'))
 
 
 
@@ -115,6 +136,8 @@ def enter_feedback():
        
        add_feedback(feedback_details)
        return redirect(url_for('enter_feedback'))
+
+
 
 def add_feedback(feedback_details):
     anon_feedback = feedback(id = feedback_details[0], feedback = feedback_details[1])

@@ -409,6 +409,20 @@ a:hover {
     float: right;
 }
 
+#box{
+    padding: 5% ;
+    background-color: #062c5e;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+#img-tag{
+    width: 100px;
+    height: 100px;
+    
+}
+
 
 
 

@@ -1,21 +1,33 @@
 <!DOCTYPE html>
+
+
 <html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>CSCB20</title>
         <link rel="stylesheet" href="../static/template.css"/>
-        
+        <script src="../static/javascript.js"></script>
     </head>
 <body>
     <form action="http://127.0.0.1:5000/login" method = "post">
+        {% block content %}
+        {% with messages = get_flashed_messages(with_categories = True) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div id = "error-msg">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         <label for="username">Username</label>
         <input type="text" id="Username" name="Username">
-    
         <label for="Password">Password</label>
-        <textarea id="text" name="Password"></textarea>
+        <textarea type= "password" id="myInput" name ="Password"></textarea>
+
+        <input type="checkbox" onclick="myFunction()">Show Password
     
         <button type="Login">Login</button>
     </form>
 </body>
+{% endblock %}
 

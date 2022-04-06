@@ -1,0 +1,49 @@
+{% extends "templateStudent.html" %}
+{% block content %}
+    <div id = "box">
+        {% if session.role == "student" %}
+            <img id="img-tag" src="../static/graduate.png">
+        {% else %}
+            <img id="img-tag" src="../static/profile.png">
+        {% endif %}
+        {% if session.name %}
+            {% with messages = get_flashed_messages()%}
+                {% if messages %}
+                    {% for message in messages %}
+                        <h2>Welcome back {{session.name}}</h2>
+                    {% endfor %}
+                {% else %}
+                    <h2> Welcome to your CSCB20 website {{session.name}} </h2>
+                {% endif %}
+            {% endwith %}
+    </div>  
+            
+    {% if session.role == "student" %}
+        <p class="overview">
+            As a student now you have access to see all the course material and your grades.
+            You can also submit a remark request or a feedback about your instructor. 
+            {% if session.role %}
+                {{session.role}}
+            {% endif %}
+        </p>
+    {% else %}
+        <p class="overview">
+            As an instructor now you have access to see all the course material grades of your students.
+            You can also make changes to the grades. 
+            {% if session.role %}
+                {{session.role}}
+            {% endif %}
+        </p>
+    {% endif %}
+
+
+    <div class = "footer">
+        <div class = "footer-content">
+            <a href="https://web.cs.toronto.edu/">Faculty of Computer Science at UofT</a>
+                <br>Site designed by Ayesha, Shruti and Shahzad
+        </div>
+    </div>
+    
+
+{% endif %}
+{% endblock %}

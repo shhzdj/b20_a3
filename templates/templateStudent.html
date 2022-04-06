@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>CSCB20</title>
+        <link rel="stylesheet" href="../static/style.css"/>
+        
+    </head>
+
+    <body>
+
+        <div class ="heading">
+            {% if session.name %}
+            <div class="webname"><a href = "account.html"><b>{{session.name}}</b></a></div>
+            {% endif %}
+            <div class="menu">
+                <div class = "home">
+                    <a href = "index.html"> Home</a>
+                </div>
+                {% if session.role == "student" %}
+                    <div class = "tabs">
+                        <a href = "calendar.html">Grades</a>
+                    </div>
+                    <div class = "tabs">
+                        <a href = "calendar.html">Remark</a>
+                    </div>
+                {% else %}
+                    <div class = "tabs">
+                        <a href = "calendar.html">View Grades</a>
+                    </div>
+                    <div class = "tabs">
+                        <a href = "calendar.html">Remark</a>
+                    </div>
+                {% endif %} 
+                <div class = "tabs">
+                    <a href = "calendar.html">Calendar</a>
+                </div>
+                <div class = "tabs">
+                    <a href = "Assignments.html">Assignments</a>
+                </div>
+                <div class = "tabs">
+                    <a href = "lectures.html">Lectures</a>
+                </div>
+                <div class = "tabs">
+                    <a href = "labs.html">Labs</a>
+                </div>
+                <div class = "tabs">
+                    <a href="https://piazza.com/class/kxj5alixpjg4ft" target="_blank">Piazza</a>
+                </div>
+                <div class = "tabs">
+                    <a href="https://markus.utsc.utoronto.ca/cscb20w22/assignments" target="blank">MarkUs</a> 
+                </div>
+                <div class = "tabs">
+                    <a href = "announcements.html">Announcements</a>
+                </div>
+                <div class = "tabs">
+                    <a href = "resources.html">Resources</a>
+                </div>
+                <div class = "tabs">
+                    <a href = "feedback">Feedback</a>
+                </div>
+                <div class = "tabs">
+                    <a href = "home">Logout</a>
+                </div>
+            </div>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+
+    </body>
+
+</html>

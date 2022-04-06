@@ -19,9 +19,9 @@ form {
   }
 
   body {
-    font-family: 'Lato', sans-serif;
-    color: #333;
-    background-color: #f8f8f9;
+    font-family:verdana;
+    color: white;
+    background-color:black;
   }
   input[type="text"],
   input[type="password"],
@@ -58,7 +58,8 @@ form {
   input:focus,
   textarea:focus,
   select:focus {
-    border-color: #00b7f5;
+    background-color:#e5e5e4;
+    border-color: black;
   }
   
   input[type="radio"],
@@ -79,5 +80,12 @@ form {
     height: 48px;
     font-size: 16px;
     border-radius: 25px;
+    
+  }
+
+  #error-msg{
+    text-align: center;
+    color: red;
+
   }
   
