@@ -1,0 +1,16 @@
+<head>
+    <meta charset="utf-8">
+   <title>Anonymous feedback</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='template.css') }}">
+</head>
+
+
+{% block content %}
+    <h1>
+        Anonymous feedback was submitted!
+    </h1>
+
+    <button type = "returnToFeedback"><a href = "{{ url_for('enter_feedback') }}"> Return to Feedback</a></button>
+
+
+{% endblock %}
