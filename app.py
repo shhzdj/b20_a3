@@ -6,7 +6,7 @@ from flask_bcrypt import Bcrypt
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '"\x88\x80\xc1\xact\x07\xa7d\xc8\xa5G\x0e\xf0{y'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes = 1)
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(seconds = 15)
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 
@@ -48,11 +48,7 @@ def account():
     pagename = 'account'
     return render_template('account.html',pagename = pagename)
 
-app.route('/logout')
-def logout():
-    session.pop('name', default=None)
-    session.clear('name', default=None)
-    return redirect(url_for('home'))
+
 
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
@@ -101,7 +97,10 @@ def login():
             return redirect(url_for('account'))
 
 
-
+@app.route('/logout')
+def logout():
+    session.pop('name', default = None)
+    return redirect(url_for('home'))
 
 @app.route('/feedback', methods = ['GET', 'POST'])
 def enter_feedback():
